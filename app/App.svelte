@@ -1,39 +1,43 @@
-<script lang="typescript">
+<script lang="javascript">
   import { onMount } from "svelte";
+  import { Template } from "svelte-native/components";
 
-  //   import List from "./components/List.svelte";
-  let message: string = "Blank Svelte Native App";
-  const onButtonTap = () => {
-    alert(message);
+  let users = [];
+
+  const getUsers = async () => {
+    try {
+      let res = await fetch("https://randomuser.me/api/?results=30");
+      let { results } = await res.json();
+      users = results;
+      isReady = true;
+    } catch (err) {
+      console.log(err);
+    }
   };
-  //   "https://api.github.com/users/sveltejs/repos"
-  const onChangeText = (endpoint: string) => {
-    fetch(endpoint);
-  };
+
+  function onItemTap() {
+    console.log("tap");
+  }
+
+  onMount(async () => {
+    await getUsers();
+    users.forEach((user) => console.log(user.email));
+  });
 </script>
 
 <page>
   <actionBar title="Svelte Native App" />
-  <gridLayout>
-    <label
-      class="info"
-      horizontalAlignment="center"
-      verticalAlignment="middle"
-      textWrap="true"
-    >
-      <formattedString>
-        <span class="fas" text="&#xf135;" />
-        <span text=" {message}" />
-      </formattedString>
-    </label>
-  </gridLayout>
+  <flexboxLayout>
+    <listView items={users} on:itemTap={onItemTap} row="1" colSpan="2">
+      <Template let:item>
+        <flexboxLayout>
+          <label text={item.name.first} textWrap="true" class="first" />
+          <label text={item.name.last} textWrap="true" class="last" />
+        </flexboxLayout>
+      </Template>
+    </listView>
+  </flexboxLayout>
 </page>
 
 <style>
-  .info .fas {
-    color: #3a53ff;
-  }
-  .info {
-    font-size: 20;
-  }
 </style>
