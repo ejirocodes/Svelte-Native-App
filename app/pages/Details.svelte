@@ -1,16 +1,5 @@
 <script>
-  import { onMount } from "svelte";
-
   export let user;
-
-  function onItemTap() {
-    console.log(`User ${user}`);
-
-    // navigate({ page: Details });
-  }
-  onMount(() => {
-    console.log(user);
-  });
 </script>
 
 <page>

@@ -24,7 +24,6 @@
       page: Details,
       props: { user: users[args.index] },
     });
-    // navigate({ page: Details });
   }
 
   onMount(async () => {
@@ -34,7 +33,6 @@
 
 <page>
   <actionBar title="List of Users" />
-  <button text="To Details directly" on:tap={onItemTap} />
 
   <flexboxLayout>
     <listView items={users} on:itemTap={onItemTap} row="1" colSpan="2">
@@ -64,5 +62,21 @@
   ListView {
     background-color: #f5f5f5;
     color: #4831d4;
+  }
+  TextField {
+    border-width: 2;
+    border-color: #4831d4;
+    border-style: solid;
+    border-radius: 5;
+    padding: 10;
+  }
+  Button {
+    background-color: #4831d4;
+    color: #f5f5f5;
+    padding: 20;
+    vertical-align: middle;
+    font-weight: 400;
+    font-size: 18;
+    border-radius: 8;
   }
 </style>
