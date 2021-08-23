@@ -34,6 +34,10 @@
 <page>
   <actionBar title="List of Users" />
 
+  <!-- <button text="See more" on:tap={onItemTap} /> -->
+
+  <!-- <textField bind:text={textFieldValue} hint="Enter your name" /> -->
+
   <flexboxLayout>
     <listView items={users} on:itemTap={onItemTap} row="1" colSpan="2">
       <Template let:item>
