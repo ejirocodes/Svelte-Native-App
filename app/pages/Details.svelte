@@ -16,24 +16,22 @@
 <page>
   <stackLayout>
     <flexboxLayout>
-      <flexboxLayout>
-        <label text={user.name} textWrap="true" class="name" />
-      </flexboxLayout>
-      <flexboxLayout>
-        <label
-          text={"@" + user.username.toLowerCase()}
-          textWrap="true"
-          class="last"
-        />
-      </flexboxLayout>
-      <flexboxLayout>
-        <label text="Email:" textWrap="true" class="first" />
-        <label text={user.email} textWrap="true" class="first" />
-      </flexboxLayout>
-      <label text={user.address.city} textWrap="true" class="first" />
-      <label text={user.address.street} textWrap="true" class="first" />
-      <label text={user.phone} textWrap="true" class="first" />
+      <label text={user.name} textWrap="true" class="name" />
     </flexboxLayout>
+    <flexboxLayout>
+      <label
+        text={"@" + user.username.toLowerCase()}
+        textWrap="true"
+        class="last"
+      />
+    </flexboxLayout>
+    <flexboxLayout>
+      <label text="Email:" textWrap="true" class="first" />
+      <label text={user.email} textWrap="true" class="first" />
+    </flexboxLayout>
+    <label text={user.address.city} textWrap="true" class="first" />
+    <label text={user.address.street} textWrap="true" class="first" />
+    <label text={user.phone} textWrap="true" class="first" />
   </stackLayout>
 </page>
 

@@ -40,10 +40,16 @@
     <listView items={users} on:itemTap={onItemTap} row="1" colSpan="2">
       <Template let:item>
         <flexboxLayout>
+          <label text="Name:" textWrap="true" class="first" />
           <label text={item.name} textWrap="true" class="name" />
         </flexboxLayout>
         <flexboxLayout>
-          <label text={"@" + item.username} textWrap="true" class="last" />
+          <label text="Username:" textWrap="true" class="first" />
+          <label
+            text={"@" + item.username.toLowerCase()}
+            textWrap="true"
+            class="last"
+          />
         </flexboxLayout>
         <flexboxLayout>
           <label text="Email:" textWrap="true" class="first" />
@@ -54,5 +60,9 @@
   </flexboxLayout>
 </page>
 
-<style>
+<style scoped>
+  ListView {
+    background-color: #f5f5f5;
+    color: #4831d4;
+  }
 </style>
